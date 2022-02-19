@@ -25,7 +25,7 @@ if __name__ == "__main__":
     try:
         app.start()
     except (ApiIdInvalid, ApiIdPublishedFlood):
-        raise Exception("API ID/API HASH Kamu Salah")
+        raise Exception("API_ID/API_HASH Kamu Salah")
     except AccessTokenInvalid:
         raise Exception("BOT_TOKEN Kamu Tidak Valid")
     uname = app.get_me().username
