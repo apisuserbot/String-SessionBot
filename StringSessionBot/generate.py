@@ -75,7 +75,7 @@ async def generate_session(bot, msg, telethon=False):
         await msg.reply('`PHONE_NUMBER` masih salah , Tolong mulai ulang generating', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     try:
-        phone_code_msg = await bot.ask(user_id,"Tolong cek untuk kode OTP dalam akun Telegram , Jika anda mendapatkannya , Kirim OTP disini sesudah membaca format di bawah ini \nJika kode OTP adalah `12345`, **Tolong kirim sebagai** `1 2 3 4 5`", filters=filters.text, timeout=600)
+        phone_code_msg = await bot.ask(user_id, "Tolong cek untuk kode OTP dalam akun Telegram , Jika anda mendapatkannya , Kirim OTP disini sesudah membaca format di bawah ini \nJika kode OTP adalah `12345`, **Tolong kirim sebagai** `1 2 3 4 5`", filters=filters.text, timeout=600)
         if await cancelled(api_id_msg):
             return
     except TimeoutError:
