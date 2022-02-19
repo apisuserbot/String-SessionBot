@@ -10,36 +10,36 @@ Selamat datang {}
 
 Jika kamu tidak percaya bot ini, 
 1) gausah baca pesan ini
-2) blokir bot atau delete chat
+2) blokir bot atau hapus chat
 
-Bot ini Bekerja Untuk Membantu Kamu Mendapatkan String Session Via Bot. Rekomendasi Jika Ingin Mengambil String Gunakan Akun Lain, Agar Tidak Delay. Terimakasih
-By @fckualot
+Bot ini Bekerja Untuk Membantu Kamu Mendapatkan String Session Via Bot , Rekomendasi Jika Ingin Mengambil String Gunakan Akun Lain , Agar Tidak Delay. Terimakasih
+By @tzypis
     """
 
     # Home Button
     home_buttons = [
-        [InlineKeyboardButton("🔥 Start Generating Session 🔥", callback_data="generate")],
+        [InlineKeyboardButton("• Mulai Generating Session •", callback_data="generate")],
         [InlineKeyboardButton(text="🏠 Kembali 🏠", callback_data="home")]
     ]
 
     generate_button = [
-        [InlineKeyboardButton("🔥 Start Generating Session 🔥", callback_data="generate")]
+        [InlineKeyboardButton("• Mulai Generating Session •", callback_data="generate")]
     ]
 
     # Rest Buttons
     buttons = [
-        [InlineKeyboardButton("🔥 Start Generating Session 🔥", callback_data="generate")],
-        [InlineKeyboardButton("✨ Maintaned By ✨", url="https://t.me/fckualot")],
+        [InlineKeyboardButton("• Mulai Generating Session •", callback_data="generate")],
+        [InlineKeyboardButton("🐱 Developer 🐱", url="https://t.me/tzypis")],
         [
             InlineKeyboardButton("Cara Menggunakan Saya ❔", callback_data="help"),
             InlineKeyboardButton("🎪 About 🎪", callback_data="about")
         ],
-        [InlineKeyboardButton("♥ Info Bot Lain ♥", url="https://t.me/rioprojects")],
+        [InlineKeyboardButton("• Info Project •", url="https://t.me/ApisProject")],
     ]
 
     # Help Message
     HELP = """
-✨ **Available Commands** ✨
+👇🏻 **Perintah yang tersedia** 👇🏻
 
 /about - Tentang Bot ini
 /help - This Message
@@ -51,15 +51,15 @@ By @fckualot
 
     # About Message
     ABOUT = """
-**About This Bot** 
+**Tentang Bot ini** 
 
-Sebuah telegram bot untuk mengambil pyrogram dan telethon string session by @stringriobot
+Sebuah telegram bot untuk mengambil pyrogram dan telethon String Session
 
-Group Support : [Gabung](https://t.me/riogroupsupport)
+Grup Support : [Gabung](https://t.me/UserbotTelegramSupport)
 
-Framework : [Pyrogram](docs.pyrogram.org)
+Kerangka : [Pyrogram](docs.pyrogram.org)
 
-Language : [Python](www.python.org)
+Bahasa : [Python](www.python.org)
 
-Developer : @fckualot
+Developer : @tzypis
     """
