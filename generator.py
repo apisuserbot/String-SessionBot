@@ -27,7 +27,7 @@ if __name__ == "__main__":
     except (ApiIdInvalid, ApiIdPublishedFlood):
         raise Exception("API_ID/API_HASH Kamu Salah")
     except AccessTokenInvalid:
-        raise Exception("BOT_TOKEN Kamu Tidak Valid")
+        raise Exception("BOT_TOKEN Kamu Salah")
     uname = app.get_me().username
     print(f"@{uname} Berhasil Diaktifkan!")
     idle()
