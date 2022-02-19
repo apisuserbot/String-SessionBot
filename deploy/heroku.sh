@@ -11,6 +11,6 @@ echo "
                  Credit by @tzypis
 "
 
-python3 -m generator.py
+python3 generator.py
 
 # ---------------------------END-LOG--------------------------------------------- #
