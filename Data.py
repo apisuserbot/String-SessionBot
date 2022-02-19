@@ -12,8 +12,8 @@ Jika kamu tidak percaya bot ini,
 1) gausah baca pesan ini
 2) blokir bot atau hapus chat
 
-Bot ini Bekerja Untuk Membantu Kamu Mendapatkan String Session Via Bot , Rekomendasi Jika Ingin Mengambil String Gunakan Akun Lain , Agar Tidak Delay. Terimakasih
-By @tzypis
+Bot ini Bekerja Untuk Membantu Kamu Mendapatkan String Session Via Bot , Rekomendasi Jika Ingin Mengambil String Gunakan Akun Lain , Agar Tidak Delay 
+**Terimakasih**
     """
 
     # Home Button
@@ -55,7 +55,7 @@ By @tzypis
 
 Sebuah telegram bot untuk mengambil pyrogram dan telethon String Session
 
-Grup Support : [Gabung](https://t.me/UserbotTelegramSupport)
+Grup Support : [Userbot Telegram](https://t.me/UserbotTelegramSupport)
 
 Kerangka : [Pyrogram](docs.pyrogram.org)
 
