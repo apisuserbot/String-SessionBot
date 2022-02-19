@@ -1,1 +1,1 @@
-worker: deploy/heroku.sh
+worker: bash deploy/heroku.sh
