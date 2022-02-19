@@ -31,8 +31,8 @@ By @tzypis
         [InlineKeyboardButton("• Mulai Generating Session •", callback_data="generate")],
         [InlineKeyboardButton("🐱 Developer 🐱", url="https://t.me/tzypis")],
         [
-            InlineKeyboardButton("Cara Menggunakan Saya ❔", callback_data="help"),
-            InlineKeyboardButton("🎪 About 🎪", callback_data="about")
+            InlineKeyboardButton("Menu Bantuan ❔", callback_data="help"),
+            InlineKeyboardButton("🤖 About 🤖", callback_data="about")
         ],
         [InlineKeyboardButton("• Info Project •", url="https://t.me/ApisProject")],
     ]
@@ -42,11 +42,11 @@ By @tzypis
 👇🏻 **Perintah yang tersedia** 👇🏻
 
 /about - Tentang Bot ini
-/help - This Message
+/help - Pesan ini
 /start - Mulai Bot
 /generate - Mulai Generating Session
-/cancel - Membatalkan process
-/restart - Membatalkan process
+/cancel - Membatalkan proses
+/restart - Membatalkan proses
 """
 
     # About Message
