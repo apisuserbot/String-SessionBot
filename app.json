@@ -1,7 +1,7 @@
 {
-  "name": "String Session Generator",
-  "description": "Telegram bot to generate pyrogram string session",
-  "logo": "https://telegra.ph/file/7ec22c82f580a334dd13e.jpg",
+  "name": "String Session Bot Generator",
+  "description": "Telegram bot ke generate pyrogram string session",
+  "logo": "https://telegra.ph/file/b85ee2b9eba888fe00abd.jpg",
   "keywords": [
     "telegram",
     "bot",
@@ -25,30 +25,30 @@
          "plan": "heroku-postgresql"
       }
    ],
-  "repository": "https://github.com/RioProjectX/GenerateString",
+  "repository": "https://github.com/apisuserbot/String-SessionBot",
   "env": {
     "ENVIRONMENT": {
-      "description": "Don't change ANYTHING.",
+      "description": "Jangan ubah ANYTHING",
       "required": true,
       "value": "ANYTHING"
     },
     "API_ID": {
-      "description": "Get this value from my.telegram.org.",
+      "description": "Ambil API_ID Di my.telegram.org",
       "required": true,
       "value": ""
     },
     "API_HASH": {
-      "description": "Get this value from my.telegram.org.",
+      "description": "Ambil API_HASH Di my.telegram.org",
       "required": true,
       "value": ""
     },
     "BOT_TOKEN": {
-      "description": "Obtain a Telegram bot token by contacting @BotFather",
+      "description": "Dapatkan token bot Telegram dengan menghubungi @BotFather",
       "required": true,
       "value": ""
     },
     "MUST_JOIN": {
-      "description": "Add username/id of a channel/group",
+      "description": "Tambakan username/id dari channel/group",
       "required": false,
       "value": ""
     }
