@@ -39,25 +39,25 @@ async def main(_, msg):
 
 
 async def generate_session(bot, msg, telethon=False):
-    await msg.reply("Memulai {} Session Generation...".format("Telethon" if telethon else "Pyrogram"))
+    await msg.reply("__Memulai {} Session Generation...__".format("Telethon" if telethon else "Pyrogram"))
     user_id = msg.chat.id
-    api_id_msg = await bot.ask(user_id, 'Tolong Kirim  `API_ID`', filters=filters.text)
+    api_id_msg = await bot.ask(user_id, 'Tolong Kirimkan  `API_ID` Anda Disini', filters=filters.text)
     if await cancelled(api_id_msg):
         return
     try:
         api_id = int(api_id_msg.text)
     except ValueError:
-        await api_id_msg.reply('Tidak Benar API_ID (which must be an integer), Tolong mulai ulang generating session', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await api_id_msg.reply('API_ID Tidak Benar , Tolong mulai ulang generating session', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
-    api_hash_msg = await bot.ask(user_id, 'Tolong Kirim `API_HASH`', filters=filters.text)
+    api_hash_msg = await bot.ask(user_id, 'Tolong Kirimkan `API_HASH` Anda Disini', filters=filters.text)
     if await cancelled(api_id_msg):
         return
     api_hash = api_hash_msg.text
-    phone_number_msg = await bot.ask(user_id, 'Sekarang Kirkm `PHONE_NUMBER` Dengan Kode Nomor Negara \nContoh : `+628xxxxxxx`', filters=filters.text)
+    phone_number_msg = await bot.ask(user_id, 'Sekarang Kirim Nomor Telepon Dengan Kode Nomor Negara\nContoh : `+628xxxxxxx`', filters=filters.text)
     if await cancelled(api_id_msg):
         return
     phone_number = phone_number_msg.text
-    await msg.reply("Mengirim Kode OTP...")
+    await msg.reply("```Mengirim Kode OTP...```")
     if telethon:
         client = TelegramClient(StringSession(), api_id, api_hash)
     else:
@@ -69,17 +69,17 @@ async def generate_session(bot, msg, telethon=False):
         else:
             code = await client.send_code(phone_number)
     except (ApiIdInvalid, ApiIdInvalidError):
-        await msg.reply('`API_ID` dan `API_HASH` masih salah , Tolong mulai ulang generating session', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await msg.reply('`API_ID` dan `API_HASH` masih salah , Tolong mulai ulang generating session lagi', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     except (PhoneNumberInvalid, PhoneNumberInvalidError):
-        await msg.reply('`PHONE_NUMBER` masih salah , Tolong mulai ulang generating', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await msg.reply('Nomor Telepon masih salah , Tolong mulai ulang generating lagi', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     try:
-        phone_code_msg = await bot.ask(user_id, "Tolong cek untuk kode OTP dalam akun Telegram , Jika anda mendapatkannya , Kirim OTP disini sesudah membaca format di bawah ini \nJika kode OTP adalah `12345`, **Tolong kirim sebagai** `1 2 3 4 5`", filters=filters.text, timeout=600)
+        phone_code_msg = await bot.ask(user_id, "Tolong cek untuk kode OTP dalam akun Telegram , Jika anda mendapatkannya , Kirim OTP disini sesudah membaca format di bawah ini \nJika kode OTP adalah `12345`, **Dan kirim dengan** `1 2 3 4 5` pakai spasi", filters=filters.text, timeout=600)
         if await cancelled(api_id_msg):
             return
     except TimeoutError:
-        await msg.reply('Batas waktu tercapai 10 menit , Tolong mulai ulang generating session', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await msg.reply('Batas waktu tercapai 10 menit , Tolong mulai ulang generating session lagi', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     phone_code = phone_code_msg.text.replace(" ", "")
     try:
@@ -88,16 +88,16 @@ async def generate_session(bot, msg, telethon=False):
         else:
             await client.sign_in(phone_number, code.phone_code_hash, phone_code)
     except (PhoneCodeInvalid, PhoneCodeInvalidError):
-        await msg.reply('OTP ini salah , Tolong mulai ulang generating session', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await msg.reply('Kode OTP ini salah , Tolong mulai ulang generating session lagi', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     except (PhoneCodeExpired, PhoneCodeExpiredError):
-        await msg.reply('OTP ini kadaluarsa , Tolong mulai ulang generating session', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+        await msg.reply('Kode OTP ini kadaluarsa , Tolong mulai ulang generating session lagi', reply_markup=InlineKeyboardMarkup(Data.generate_button))
         return
     except (SessionPasswordNeeded, SessionPasswordNeededError):
         try:
             two_step_msg = await bot.ask(user_id, 'Akun Anda telah mengaktifkan verifikasi dua langkah , Tolong berikan kata sandinya', filters=filters.text, timeout=300)
         except TimeoutError:
-            await msg.reply('Batas waktu tercapai 5 menit , Tolong mulai ulang generating session', reply_markup=InlineKeyboardMarkup(Data.generate_button))
+            await msg.reply('Batas waktu tercapai 5 menit , Tolong mulai ulang generating session lagi', reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
         try:
             password = two_step_msg.text
@@ -108,7 +108,7 @@ async def generate_session(bot, msg, telethon=False):
             if await cancelled(api_id_msg):
                 return
         except (PasswordHashInvalid, PasswordHashInvalidError):
-            await two_step_msg.reply('Kata sandi salah , Tolong mulai ulang generating session', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
+            await two_step_msg.reply('Kata sandi salah , Tolong mulai ulang generating session lagi', quote=True, reply_markup=InlineKeyboardMarkup(Data.generate_button))
             return
     if telethon:
         string_session = client.session.save()
@@ -117,7 +117,7 @@ async def generate_session(bot, msg, telethon=False):
     text = "**{} STRING SESSION** \n\n`{}` \n\nGenerating String Session Bot".format("TELETHON" if telethon else "PYROGRAM", string_session)
     await client.send_message("me", text)
     await client.disconnect()
-    await phone_code_msg.reply("Berhasil Megambil {} string session \n\nSilahkan cek di Pesan Tersimpan\n\nBy @tzypis".format("telethon" if telethon else "pyrogram"))
+    await phone_code_msg.reply("Berhasil Megambil {} string session\n\nSilahkan cek di Pesan Tersimpan\n\nJika ada masalah laporkan ke @tzypis".format("telethon" if telethon else "pyrogram"))
 
 
 async def cancelled(msg):
